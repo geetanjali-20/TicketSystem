@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Add Ticket</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <style>
+    .content {
+      max-width: 500px;
+      margin: auto;
+      margin-top: 100px;
+      margin-rig:120px;
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <a class="logo">Ticketing System</a>
+        <div class="header-right">
+          <a href="{% url 'index' %}" class=sel>Tickets</a>
+          <a href="/newuser">New User</a>
+          <a href="/register" class=sel>Add Ticket</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+    <div class="container px-5 content">
+    <h3 class="text-center">Raise Ticket</h3>
+    
+    <form method="POST" action= "{% url 'register' %}">
+        {% csrf_token %}
+        <div class="mb-2">
+            <label for="name" class="form-label">Username</label>
+            <input type="text" class="form-control" id="name" name="name"  value={{user}} aria-describedby="name">
+            
+        </div> 
+        <div class="mb-2">
+         <label for="flname" class="form-label">Name</label>
+          <input type="text" class="form-control" id="flname" name="flname" value = {{user.newuser.name}} aria-describedby="name">
+          
+      </div> 
+        <div class="mb-2">
+            <label for="phone" class="form-label">Mobile No.</label>
+            <input type="phone" class="form-control" id="phone" name="phone" aria-describedby="phone">
+            
+        </div>
+        <div class="mb-2">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email"  value = {{user.email}} aria-describedby="emailHelp">
+          
+        </div>
+        <div class="mb-2">
+          <label for="ticket">Add a Ticket: </label>
+            <select name="cards" id="ticket">
+              <option value="LMS">LMS related issue</option>
+              <option value="Login">Login issue</option>
+              <option value="course">Course  related isssue</option>
+              
+            </select>
+          </div>
+        <div class="form-group mb-2">
+            <label for="desc" class="form-label">Description of Query</label>
+            <textarea class="form-control" id="desc"  rows="3" name="desc"></textarea>
+            
+        </div>
+        {% comment %} <div class="form-group mb-2">
+        <label for="myfile">Upload a file:</label>
+        <input type="file" id="file" name="file">
+        </div> {% endcomment %}
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        <button type="reset" class="btn btn-primary mb-3 px-3">Reset</button>
+      </form>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+</body>
+</html>
+     
+    
